@@ -1,22 +1,27 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./contact.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
-    const form = useRef();
 
-    const sendEmail = (e) => {
-      e.preventDefault();
+    const toastSuccess = () => {
+        toast.success("Message Sent!!")
+    }
+  const form = useRef();
 
-      emailjs
-        .sendForm(
-          "service_59bw3l2",
-          "template_t94m1ve",
-          form.current,
-          "4nohhb4RuDou11IVu"
-        )
-        e.target.reset()
-    };
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_59bw3l2",
+      "template_t94m1ve",
+      form.current,
+      "4nohhb4RuDou11IVu"
+    );
+    e.target.reset();
+  };
   return (
     <section className="contact section" id="contact">
       <h2 className="section__title">Get in touch</h2>
@@ -54,12 +59,10 @@ function Contact() {
             </div>
 
             <div className="contact__card">
-              <i className="bx bxl-messenger contact__card-icon"></i>
-              <h3 className="contact__card-title">Messenger</h3>
-              <span className="contact__card-data">
-                prosperademoye@gmail.com
-              </span>
-              <a href="https://m.me/crypticalcoder" className="contact__button">
+              <i className="bx bxl-instagram contact__card-icon"></i>
+              <h3 className="contact__card-title">Instagram</h3>
+              <span className="contact__card-data">swervegotti69</span>
+              <a href="https://instagram.com" className="contact__button">
                 Write me{" "}
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
               </a>
@@ -69,10 +72,7 @@ function Contact() {
 
         <div className="contact__content">
           <h3 className="contact__title">Write me your project</h3>
-          <form
-            className="contact__form"
-            ref={form}
-            onSubmit={sendEmail}>
+          <form className="contact__form" ref={form} onSubmit={sendEmail}>
             <div className="contact__form-div">
               <label className="contact__form-tag">Name</label>
               <input
@@ -80,6 +80,7 @@ function Contact() {
                 name="name"
                 className="contact__form-input"
                 placeholder="Insert your name"
+                required
               />
             </div>
 
@@ -90,6 +91,7 @@ function Contact() {
                 name="email"
                 className="contact__form-input"
                 placeholder="Insert your email"
+                required
               />
             </div>
 
@@ -100,10 +102,11 @@ function Contact() {
                 cols="30"
                 rows="10"
                 className="contact__form-input"
-                placeholder="Write your project"></textarea>
+                placeholder="Write your project"
+                required></textarea>
             </div>
 
-            <button className="button button--flex">
+            <button className="button button--flex" onClick={toastSuccess}>
               Send Message{" "}
               <svg
                 className="button__icon"

@@ -1,3 +1,32 @@
+/* transition.css */
+.transition-effect {
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transition-effect {
+  animation: fadeInUp 5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animation-done {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*  */
+
 .home__container {
   row-gap: 7em;
 }

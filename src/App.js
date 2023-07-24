@@ -5,6 +5,8 @@ import Contact from "./components/contact/Contact";
 import Home from "./components/home/Home";
 import Skill from "./components/skills/Skills";
 import Work from "./components/work/Work";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -18,7 +20,8 @@ function App() {
         <About/>
         <Skill/>
         <Work />
-        <Contact/>
+        <Contact />
+        <ToastContainer/>
       </main>
     </div>
   );
